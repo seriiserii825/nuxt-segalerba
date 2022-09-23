@@ -1,0 +1,147 @@
+.single-immobili {
+  &__slider {
+    position: relative;
+    margin-bottom: 5rem;
+    padding-bottom: 0 !important;
+    transition: all 0.6s;
+    @media screen and (max-width: 768px) {
+      overflow: hidden;
+      margin-bottom: 0;
+      left: -48px;
+      width: calc(100% + 96px);
+    }
+    @media screen and (max-width: 578px) {
+      left: -34px;
+      width: calc(100% + 68px);
+    }
+    &.single-copy {
+      margin-bottom: 10rem;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -10rem;
+      left: -20rem;
+      display: none;
+      width: 140%;
+      height: 14px;
+      background: #eee;
+    }
+    &.fixed {
+      position: fixed;
+      top: 0;
+      left: 0;
+
+      padding-top: 0;
+      width: 100% !important;
+      height: 100%;
+      z-index: 10000;
+      .single-immobili__slider-wrap {
+        width: 100% !important;
+        height: 100vh;
+      }
+      .single-immobili__slider-item {
+        height: 100vh !important;
+        background-color: #000;
+        img {
+          position: absolute;
+          top: 50%;
+          object-fit: contain;
+        }
+      }
+    }
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 5rem;
+      height: 10rem;
+      background-color: white;
+      transition: all 0.4s;
+      border: none;
+      cursor: pointer;
+      z-index: 100;
+      @media screen and (max-width: 500px) {
+        transform: scale(0.7) translateY(-50%);
+      }
+
+      &:hover {
+        svg {
+          stroke: darken($accent, 20%);
+        }
+      }
+      svg {
+        position: relative;
+        stroke: $accent !important;
+        transition: all 0.4s;
+        z-index: 110;
+      }
+      &.prev {
+        left: 0;
+        @media screen and (max-width: 500px) {
+          left: -7px;
+        }
+      }
+      &.next {
+        right: 0;
+        @media screen and (max-width: 500px) {
+          right: -7px;
+        }
+      }
+    }
+    &-wrap {
+      position: relative;
+      display: table;
+      margin: 0 auto;
+      width: 100% !important;
+      height: 75rem !important;
+      max-height: 75rem;
+
+      @media screen and (max-width: 700px) {
+        height: 65rem !important;
+      }
+      @media screen and (max-width: 550px) {
+        height: 50rem !important;
+      }
+
+      @media screen and (max-width: 470px) {
+        height: 40rem !important;
+      }
+
+      @media screen and (max-width: 350px) {
+        height: 30rem !important;
+      }
+
+      .single-immobili__slider-item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100% !important;
+        opacity: 0;
+        visibility: hidden;
+
+        z-index: 1;
+        &.active {
+          z-index: 10;
+          opacity: 1;
+          visibility: visible;
+        }
+        img {
+          position: relative;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: auto;
+          max-height: 100%;
+          max-width: 100%;
+          height: auto;
+          // object-fit: cover;
+        }
+      }
+    }
+  }
+}

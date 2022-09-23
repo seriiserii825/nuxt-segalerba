@@ -1,0 +1,31 @@
+.accordion {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3.2rem 0;
+    border-top: 1px solid #DDDDDD;
+    cursor: pointer;
+  }
+  &__title {
+    @include einasemibold;
+    font-size: 2rem;
+    color: #FF8D00;
+  }
+  &__content {
+    //display: none;
+    padding: 3.2rem 0;
+  }
+  &__item {
+    &.hide {
+      display: none;
+    }
+    &.active {
+      .accordion__header {
+        svg {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+}

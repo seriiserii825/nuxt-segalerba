@@ -1,0 +1,28 @@
+.single-view {
+  .circle-block__wrap {
+    flex-wrap: nowrap;
+    @media screen and (max-width: 1200px) {
+      flex-wrap: wrap;
+    }
+  }
+  .circle-block__title {
+    @media screen and (max-width: 576px) {
+      font-size: 2rem;
+      text-align: center;
+    }
+  }
+  .circle-block__item {
+    margin-bottom: 0;
+    width: 20%;
+    @media screen and (max-width: 1200px) {
+      margin-bottom: 4rem;
+      width: 45%;
+    }
+    @media screen and (max-width: 576px) {
+      width: 100%;
+    }
+  }
+  .circle-block__item-title {
+    text-align: center;
+  }
+}

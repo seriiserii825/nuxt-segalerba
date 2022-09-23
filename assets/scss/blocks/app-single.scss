@@ -1,0 +1,47 @@
+.app-single.single-full {
+  @media screen and (max-width: 768px) {
+    padding: 0 0 8rem;
+  }
+  .site-bg--padding {
+    @media screen and (max-width: 768px) {
+      padding: 0;
+    }
+  }
+  .single-immobili__slider .slider-btn.prev {
+    left: 3rem;
+  }
+  .single-immobili__slider .slider-btn.next {
+    right: 3rem;
+  }
+  .single-estate-full-content {
+    padding: 0;
+  }
+  .single-immobili__slider {
+    @media screen and (max-width: 768px) {
+      margin-bottom: 4rem;
+    }
+  }
+  .single-estate__header-left {
+    @media screen and (max-width: 1400px) {
+      padding-left: 0;
+    }
+  }
+  .single-estate__header {
+    @media screen and (max-width: 700px) {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+  }
+  .single-estate__header-left {
+    @media screen and (max-width: 700px) {
+      margin-bottom: 3rem;
+    }
+  }
+  .single-estate__header-right {
+    @media screen and (max-width: 700px) {
+      padding-left: 0;
+      text-align: left;
+    }
+  }
+}

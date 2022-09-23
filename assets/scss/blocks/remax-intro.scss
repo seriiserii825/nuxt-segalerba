@@ -1,0 +1,38 @@
+.remax-intro {
+  padding: 8rem 2.5rem 2.7rem 2.5rem;
+  background-color: #fff;
+  text-align: center;
+
+  &__imgs {
+    margin-bottom: 5.9rem;
+
+    & img:first-child {
+      margin-right: 2rem;
+
+      @media screen and (max-width: 570px) {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__content {
+    max-width: 88.6rem;
+    margin: 0 auto;
+
+    & .title {
+      font-weight: bold;
+      font-size: 3.2rem;
+      line-height: 3.7rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 3.8rem;
+      color: $text;
+    }
+
+    & .p {
+      font-size: 1.8rem;
+      line-height: 150%;
+      color: #666666;
+      margin-bottom: 2.7rem;
+    }
+  }
+}

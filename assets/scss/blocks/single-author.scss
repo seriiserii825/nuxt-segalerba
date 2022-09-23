@@ -1,0 +1,20 @@
+.single-author {
+  display: flex;
+  padding-bottom: 6rem;
+  @media screen and (max-width: 576px) {
+  	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+  }
+  &__img {
+	margin-right: 4rem;
+	flex: 0 0 18rem;
+	@media screen and (max-width: 576px) {
+	  margin-right: 0;
+	  margin-bottom: 4rem;
+	}
+  }
+  &__text {
+	line-height: 1.5;
+  }
+}

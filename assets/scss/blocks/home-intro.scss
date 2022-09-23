@@ -1,0 +1,75 @@
+.home-intro {
+  position: relative;
+  height: 91.1rem;
+  display: flex;
+  align-items: flex-end;
+  z-index: 1;
+  @media screen and (max-width: 576px) {
+    height: 70rem;
+  }
+  & ._container {
+    position: relative;
+    height: 100%;
+  }
+  &__img {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
+  &__content {
+    position: absolute;
+    bottom: 14rem;
+    left: 1.8rem;
+    padding-right: 2.8rem;
+    width: 74rem;
+    letter-spacing: -0.13rem;
+    color: #fff;
+    @media screen and (max-width: 1200px) {
+      width: 40%;
+    }
+    @media screen and (max-width: 992px) {
+      bottom: 10rem;
+      width: 100%;
+    }
+
+    @media screen and (max-width: 550px) {
+      text-align: center;
+    }
+  }
+  &__title {
+    margin-bottom: 0.6rem;
+    @include einasemibold;
+    font-size: 64px;
+    @media screen and (max-width: 1200px) {
+      font-size: 4.5rem;
+    }
+  }
+  &__subtitle {
+    @include einalight;
+    font-size: 6.4rem;
+    line-height: 1.2;
+    @media screen and (max-width: 1200px) {
+      font-size: 5rem;
+    }
+    @media screen and (max-width: 992px) {
+      font-size: 4rem;
+    }
+  }
+  &__filter {
+    position: relative;
+    margin-bottom: 2.4rem;
+    z-index: 3;
+    @media screen and (max-width: 600px) {
+      margin-bottom: 8rem;
+    }
+  }
+}
+.page-id-78 .home-intro__subtitle {
+  span {
+    padding: 1.5rem 2.5rem 2rem;
+  }
+}

@@ -1,0 +1,41 @@
+.range {
+  padding: 2rem 2.9rem;
+  background-color: white;
+  &__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.4rem;
+  }
+  &__title {
+    margin-right: 1.7rem;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.8rem;
+    line-height: 2.1rem;
+    color: #505050;
+  }
+  &__body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    span {
+      display: block;
+      width: 4.3rem;
+      height: 1px;
+      background-color: #505050;
+    }
+    input {
+      width: 20%;
+    }
+  }
+  input {
+    font-size: 1.8rem;
+    color: $accent;
+    border: none;
+    &:focus {
+      outline: none;
+      border: 1px solid transparent;
+    }
+  }
+}

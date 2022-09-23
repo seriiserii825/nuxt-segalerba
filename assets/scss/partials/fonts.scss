@@ -1,0 +1,68 @@
+//100	Тонкий (Волосяной) Thin (Hairline)
+//200	Дополнительный светлый (Сверхсветлый) Extra Light (Ultra Light)
+//300	Светлый Light
+//400	Нормальный Normal
+//500	Средний Medium
+//600	Полужирный Semi Bold (Demi Bold)
+//700	Жирный Bold
+//800	Дополнительный жирный (Сверхжирный) Extra Bold (Ultra Bold)
+//900	Черный (Густой)Black (Heavy)
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Regular.woff2") format("woff2"),
+    url("../fonts/Roboto-Regular.woff") format("woff");
+  font-display: swap;
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Medium.woff2") format("woff2"),
+    url("../fonts/Roboto-Medium.woff") format("woff");
+  font-display: swap;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Bold.woff2") format("woff2"),
+    url("../fonts/Roboto-Bold.woff") format("woff");
+  font-display: swap;
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Eina01";
+  src: url("../fonts/Eina01-Regular.woff2") format("woff2"),
+  url("../fonts/Eina01-Regular.woff") format("woff");
+  font-display: swap;
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Eina01";
+  src: url("../fonts/Eina01-SemiBold.woff2") format("woff2"),
+  url("../fonts/Eina01-SemiBold.woff") format("woff");
+  font-display: swap;
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Eina01";
+  src: url("../fonts/Eina01-Bold.woff2") format("woff2"),
+  url("../fonts/Eina01-Bold.woff") format("woff");
+  font-display: swap;
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Eina01";
+  src: url("../fonts/Eina01-Light.woff2") format("woff2"),
+  url("../fonts/Eina01-Light.woff") format("woff");
+  font-display: swap;
+  font-weight: 300;
+  font-style: normal;
+}

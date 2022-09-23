@@ -1,0 +1,11 @@
+.link-arrow {
+  display: flex;
+  align-items: center;
+  span {
+    display: inline-block;
+    margin-right: 1.2rem;
+    @include einasemibold;
+    font-size: 1.8rem;
+    color: $accent;
+  }
+}

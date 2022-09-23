@@ -1,0 +1,310 @@
+html {
+  font-size: 62.5%;
+  @media screen and (max-width: 1200px) {
+    font-size: 50%;
+  }
+}
+body {
+  position: relative;
+  margin: 0;
+  @include eina;
+  font-size: 1.7rem;
+  color: $text;
+  background: #eee;
+  //background: blue;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    display: none;
+    width: 1px;
+    height: 100%;
+    background-color: green;
+    z-index: 1000;
+  }
+  &._lock {
+    overflow: hidden;
+  }
+  &.page-id-653 {
+    .main-footer {
+      .map {
+        display: none;
+      }
+    }
+  }
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  font-weight: inherit;
+  font-size: inherit;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: top;
+}
+ul {
+  @include reset-list;
+}
+p {
+  margin: 0;
+  padding: 0;
+}
+._hidden {
+  display: none;
+}
+._container,
+.container {
+  margin: 0 auto;
+  padding: 0 25px;
+  max-width: 1465px;
+  width: 100%;
+  @media screen and (max-width: 576px) {
+    padding: 0 10px;
+  }
+}
+.app-single.full {
+  background-color: white;
+  .container {
+    max-width: 1698px;
+  }
+  .single-estate__header {
+    margin-bottom: 1.8rem;
+  }
+  .single-estate__main {
+    @media screen and (max-width: 1600px) {
+      display: block;
+    }
+  }
+  .single-estate__sidebar {
+    display: block;
+    @media screen and (max-width: 1600px) {
+      display: flex;
+      justify-content: space-between;
+
+      &-left,
+      &-right {
+        width: 60rem;
+        @media screen and (max-width: 576px) {
+          width: auto;
+        }
+      }
+
+      &-left {
+        @media screen and (max-width: 1400px) {
+          margin-right: 10rem;
+        }
+        @media screen and (max-width: 1085px) {
+          margin-right: 0;
+        }
+      }
+    }
+
+    @media screen and (max-width: 1085px) {
+      flex-direction: column;
+      align-items: center;
+    }
+    @media screen and (max-width: 768px) {
+      margin-left: 0;
+      padding: 6rem 0;
+      width: 100%;
+    }
+
+    @media screen and (max-width: 576px) {
+      display: block;
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    @media screen and (max-width: 550px) {
+      padding: 6rem 0 0rem;
+    }
+    &::before {
+      @media screen and (max-width: 1600px) {
+        display: none;
+      }
+    }
+  }
+  .single-estate__content {
+    @media screen and (max-width: 1600px) {
+      width: 100%;
+    }
+    @media screen and (max-width: 768px) {
+      padding-bottom: 0;
+    }
+  }
+  .single-immobili__slider-wrap {
+    width: 117.2rem;
+    .single-immobili__slider-item {
+      height: 58rem;
+    }
+
+    @media screen and (max-width: 1290px) {
+      width: 100%;
+    }
+  }
+  // .single-immobili__slider {
+  //   padding-bottom: 4.7rem;
+  //   @media screen and (max-width: 700px) {
+  //     left: -6.2rem;
+  //     width: calc(100% + 12.4rem);
+  //   }
+  //   @media screen and (max-width: 550px) {
+  //     padding-bottom: 1rem;
+  //   }
+  // }
+}
+.content-container {
+  margin: 0 auto;
+  padding: 0 25px;
+  max-width: 1464px;
+  width: 100%;
+}
+input[type="submit"]:disabled {
+  cursor: not-allowed !important;
+  opacity: 0.6 !important;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+input::-ms-clear {
+  display: none;
+}
+button {
+  cursor: pointer;
+}
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+.wrapper {
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.page {
+  flex: 1 1 auto;
+}
+#pixel-to-watch {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  top: 100px;
+  left: 0;
+}
+.fade-in {
+  opacity: 0;
+  animation-name: fadeIn;
+  animation-timing-function: ease-out;
+  animation-duration: 200ms;
+  animation-fill-mode: forwards;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.btn {
+  display: inline-block;
+  background: $accent;
+  color: #fff;
+  height: 5.4rem;
+  border: 1px solid $accent;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.8rem;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2.2rem;
+  white-space: nowrap;
+  outline: none;
+  box-shadow: none;
+  transition: all 300ms ease-out;
+  cursor: pointer;
+  &:hover {
+    background-color: #0059a2;
+  }
+  &--disabled {
+    border: 1px solid #0059a2;
+    color: #0059a2;
+    background-color: #fff;
+    &:hover {
+      cursor: not-allowed;
+      background-color: #fff;
+    }
+  }
+}
+.container-small {
+  margin: 0 auto;
+  padding: 0 15px;
+  max-width: 1306px;
+}
+.site-bg {
+  background-color: white;
+  &--padding {
+    padding: 0 3rem;
+  }
+}
+.custom-title {
+  @include einasemibold;
+  font-size: 3.2rem;
+  letter-spacing: -0.06rem;
+  color: #555;
+}
+.page-id-298,
+.archive,
+.single-post,
+.page-id-296 {
+  .main-footer {
+    border-top: 1px solid #ddd;
+  }
+}
+.page-services {
+  .content {
+    padding: 4.2rem 2.8rem 3rem;
+    @media screen and (max-width: 576px) {
+      padding: 4rem 1rem;
+    }
+    p {
+      margin-bottom: 1rem;
+      letter-spacing: -0.03rem;
+      line-height: 1.4;
+    }
+    a {
+      color: $accent;
+    }
+  }
+}
+* {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+#emqchat-bubble.emq-bottom-left {
+  height: 60px;
+}

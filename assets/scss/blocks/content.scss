@@ -1,0 +1,131 @@
+.content {
+  background-color: #fff;
+  padding: 7.3rem 6rem 0rem 6rem;
+
+  @media screen and (max-width: 400px) {
+    padding: 5rem 3rem 0rem 3rem;
+  }
+
+  &__title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 5.2rem;
+    line-height: 6.1rem;
+    color: $text;
+    letter-spacing: -0.02em;
+    margin-bottom: 3.6rem;
+
+    @media screen and (max-width: 550px) {
+      font-size: 4rem;
+      line-height: 5rem;
+    }
+  }
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+
+    &--2 {
+      margin: 0 -4rem;
+
+      & .content__column {
+        margin: 0 4rem 3.9rem;
+
+        &:first-child {
+          flex-basis: calc(47% - 8rem);
+        }
+        &:nth-child(2) {
+          flex-basis: calc(53% - 8rem);
+        }
+
+        @media screen and (max-width: 850px) {
+          flex-basis: 100% !important;
+        }
+      }
+    }
+    &--3 {
+      margin: 0 -3.45rem;
+
+      & .content__column {
+        flex-basis: calc(33.3333% - 6.9rem);
+        margin: 0 3.45rem 9rem;
+
+        @media screen and (max-width: 1100px) {
+          flex-basis: 100% !important;
+          margin: 0 3.45rem 4rem;
+        }
+      }
+    }
+    &--6 {
+      margin: 0 -3.45rem;
+
+      & .content__column {
+        flex-basis: calc(33.3333% - 6.9rem);
+        margin: 0 3.45rem 7rem;
+
+        @media screen and (max-width: 1100px) {
+          flex-basis: 100% !important;
+          margin: 0 3.45rem 4rem;
+        }
+      }
+    }
+  }
+
+  &__column {
+    & .accent {
+      color: $text;
+    }
+    & p,
+    & ul {
+      color: #666666;
+      font-size: 1.8rem;
+      line-height: 150%;
+      text-align: justify;
+      margin-bottom: 2.7rem;
+    }
+    & p + ul {
+      margin-top: -2.7rem;
+    }
+
+    & strong {
+      font-weight: bold;
+    }
+
+    & ul {
+      list-style-type: disc;
+      padding-left: 2.5rem;
+    }
+  }
+
+  &__column-title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 3.2rem;
+    line-height: 3.7rem;
+    letter-spacing: -0.02em;
+    color: $text;
+    margin-bottom: 3.4rem;
+
+    @media screen and (max-width: 550px) {
+      font-size: 2.8rem;
+      line-height: 3.4rem;
+    }
+  }
+}
+
+.page-id-90 {
+  & .content {
+    margin-bottom: 5.5rem;
+    @media screen and (max-width: 500px) {
+      margin-bottom: 0;
+    }
+  }
+}
+.page-id-80 {
+  & .content {
+    margin-bottom: 2.5rem;
+    @media screen and (max-width: 500px) {
+      margin-bottom: 0;
+    }
+  }
+}

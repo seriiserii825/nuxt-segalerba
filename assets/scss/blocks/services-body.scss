@@ -1,0 +1,12 @@
+.services-body {
+  &__content {
+	padding: 6.5rem 2.8rem 6.8rem;
+	.custom-title {
+	  margin-bottom: 2.5rem;
+	}
+	p {
+	  line-height: 1.5;
+	  letter-spacing: -0.03rem;
+	}
+  }
+}

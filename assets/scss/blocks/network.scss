@@ -1,0 +1,134 @@
+.network {
+
+  & ._container {
+    padding: 7.2rem 1.4rem 3.3rem 1.4rem;
+    background-color: #f2f7fa;
+    max-width: 1414px;
+  }
+
+  &__logos {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5.2rem;
+
+    & img {
+      &:first-of-type {
+        margin-right: 2.2rem;
+      }
+
+      mix-blend-mode: multiply;
+    }
+
+    @media screen and (max-width:550px) {
+      flex-direction: column;
+      align-items: center;
+
+      & img {
+        &:first-of-type {
+          margin-right: 0rem;
+          margin-bottom: 4rem;
+        }
+
+      }
+    }
+  }
+
+  &__title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 3.2rem;
+    line-height: 3.7rem;
+    text-align: center;
+    letter-spacing: -0.02em;
+    color: $text;
+    margin-bottom: 1rem;
+  }
+
+  &__subtitle {
+    font-weight: normal;
+    font-size: 1.8rem;
+    line-height: 150%;
+    text-align: center;
+    margin-bottom: 5.2rem;
+  }
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 3.3rem;
+
+    @media screen and (max-width:500px) {
+      margin: 0;
+    }
+  }
+
+  &__column {
+    flex-basis: calc(33.33333% - 6.6rem);
+    margin: 0 3.3rem 4rem;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.8rem;
+    line-height: 150%;
+    text-align: justify;
+    color: #666;
+    display: flex;
+    flex-direction: column;
+
+    & h3 {
+      font-weight: bold;
+      font-size: 1.8rem;
+      line-height: 150%;
+      text-align: justify;
+      color: $text;
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+    }
+
+    & p {
+      margin-bottom: 3rem;
+    }
+
+    & .important {
+      color: $text;
+      font-weight: 700;
+    }
+
+    & .red {
+      color: $contrast;
+    }
+
+    @media screen and (max-width:750px) {
+      flex-basis: 100%;
+    }
+  }
+
+  &__link {
+    color: $text;
+    margin-top: auto;
+
+    &::after {
+      content: "";
+      position: relative;
+      top: -1px;
+      display: inline-block;
+      width: 6px;
+      height: 7px;
+      background-image: url(../i/static/right.svg);
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 100%;
+      margin-left: 1rem;
+      transition: all 300ms ease-out;
+      will-change: transform;
+      backface-visibility: hidden;
+    }
+
+    &:hover {
+      text-decoration: underline;
+
+      &::after {
+        transform: translateX(0.5rem);
+      }
+    }
+  }
+}

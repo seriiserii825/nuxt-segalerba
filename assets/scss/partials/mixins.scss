@@ -1,0 +1,89 @@
+@mixin reset-list() {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+@mixin size($number) {
+  width: $number;
+  height: $number;
+}
+@mixin eina() {
+  font-family: Eina01, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+}
+@mixin einasemibold(){
+  font-family: Eina01, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+@mixin einabold() {
+  font-family: Eina01, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+@mixin einalight() {
+  font-family: Eina01, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+@mixin placeholder-input($color, $text-align) {
+  &[type="text"]::-webkit-input-placeholder,
+  &[type="number"]::-webkit-input-placeholder,
+  &[type="email"]::-webkit-input-placeholder,
+  &[type="phone"]::-webkit-input-placeholder {
+    text-align: $text-align;
+    color: $color;
+  }
+
+  &[type="text"]::-moz-placeholder,
+  &[type="number"]::-moz-placeholder,
+  &[type="email"]::-moz-placeholder,
+  &[type="phone"]::-moz-placeholder {
+    text-align: $text-align;
+    color: $color;
+  }
+
+  /* webkit */
+  &[type="text"]:-moz-placeholder,
+  &[type="number"]:-moz-placeholder,
+  &[type="email"]:-moz-placeholder,
+  &[type="phone"]:-moz-placeholder {
+    text-align: $text-align;
+    color: $color;
+  }
+  /* webkit */
+  &[type="text"]:-ms-input-placeholder,
+  &[type="number"]:-ms-input-placeholder,
+  &[type="email"]:-ms-input-placeholder,
+  &[type="phone"]:-ms-input-placeholder {
+    text-align: $text-align;
+    color: $color;
+  }
+}
+
+@mixin placeholder-textarea($color, $text-align) {
+  &::-webkit-input-placeholder {
+    text-align: $text-align;
+    color: $color;
+  }
+
+  /* webkit */
+  &::-moz-placeholder {
+    text-align: $text-align;
+    color: $color;
+  }
+
+  /* webkit */
+  &:-moz-placeholder {
+    text-align: $text-align;
+    color: $color;
+  }
+
+  /* webkit */
+  &:-ms-input-placeholder {
+    text-align: $text-align;
+    color: $color;
+  }
+}

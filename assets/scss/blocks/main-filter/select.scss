@@ -1,0 +1,80 @@
+.select {
+  position: relative;
+  background-color: white;
+  outline: none !important;
+
+  &__header {
+    padding: 2rem 2.9rem;
+  }
+  &-options {
+    position: absolute;
+    left: 0;
+    top: 8rem;
+    display: block;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 5;
+    &.overflow {
+      height: 327px;
+      overflow-y: scroll;
+    }
+    &__item {
+      padding: 1rem 2.4rem;
+      transition: all 0.4s;
+      cursor: pointer;
+      &:hover {
+        background-color: #eee;
+      }
+    }
+  }
+  &__title {
+    margin-bottom: 1.4rem;
+  }
+  &__span {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.8rem;
+    line-height: 2.1rem;
+    color: #505050;
+
+    @media screen and (max-width: 1312px) {
+      font-size: 1.5rem;
+      line-height: 1.8rem;
+    }
+
+    @media screen and (max-width: 1200px) {
+      font-size: 1.8rem;
+      line-height: 2.1rem;
+    }
+  }
+  &-selected {
+    cursor: pointer;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.8rem;
+    color: $accent;
+    line-height: 2.1rem;
+    position: relative;
+    padding-right: 0.5rem;
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 12px;
+      height: 10px;
+      background-image: url(../i/static/check-select-accent.svg);
+      background-repeat: no-repeat;
+      background-size: 100%;
+      background-position: center center;
+      top: 7px;
+      right: 0;
+      transition: transform 300ms ease-out;
+    }
+    &.is-active {
+      &::after {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+.v-virtual-tour {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .6);
+  z-index: 10001;
+  &__close {
+	position: absolute;
+	top: 1.4rem;
+	right: 7rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 4rem;
+	height: 4rem;
+	font-size: 4rem;
+	font-weight: bold;
+	color: black;
+	cursor: pointer;
+	z-index: 10;
+	@media screen and (max-width: 1200px) {
+	  top: 2.2rem;
+	  right: 10rem;
+	}
+	svg {
+	  fill: white;
+	}
+  }
+  iframe {
+	position: relative;
+	z-index: 1;
+  }
+  &__content {
+	position: relative;
+	width: 98%;
+	height: 96%;
+	background-color: #fff;
+  }
+}

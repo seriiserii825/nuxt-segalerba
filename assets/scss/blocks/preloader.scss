@@ -1,0 +1,35 @@
+@keyframes preloaderRotate {
+  0% {
+	transform: rotate(0);
+  }
+  100% {
+	transform: rotate(360deg);
+  }
+}
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  z-index: 10100;
+  &.hide {
+	display: none;
+  }
+  svg {
+	width: 10rem;
+	height: 10rem;
+	animation: preloaderRotate 20s linear forwards infinite;
+  }
+}
+
+.preloader-enter-active {
+  animation: fadeIntro .8s ease;
+}
+.preloader-leave-active {
+  animation: fadeOut .3s ease;
+}

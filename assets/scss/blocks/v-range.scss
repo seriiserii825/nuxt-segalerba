@@ -1,0 +1,50 @@
+.v-range {
+  &__item {
+    display: flex;
+    align-items: center;
+
+    @media screen and (max-width: 576px) {
+      justify-content: center;
+    }
+  }
+  .range-mobile {
+    display: none;
+    @media screen and (max-width: 600px) {
+      display: block;
+    }
+  }
+  .range-hide-mobile {
+    @media screen and (max-width: 600px) {
+      display: none;
+    }
+  }
+  &__letter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 5.5rem;
+    height: 5.5rem;
+    font-size: 3rem;
+    font-weight: 600;
+    color: white;
+    background-color: #ff8d00;
+    border-radius: 50%;
+    line-height: 1;
+  }
+  &__svg {
+    position: relative;
+    margin-top: 0.6rem;
+    span {
+      position: absolute;
+      top: 48%;
+      transform: translateY(-50%);
+      right: 3rem;
+      font-size: 1.6rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #fff;
+      text-shadow: 1px 1px 4px rgba(85, 85, 85, 0.3);
+    }
+  }
+}

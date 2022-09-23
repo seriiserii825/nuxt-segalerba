@@ -1,0 +1,111 @@
+.privacy-page {
+    border-bottom: 1px solid rgba($accent, 0.3);
+    background-color: rgba($accent, 0.05);
+
+    &__container {
+        max-width: 1060px;
+        padding: 0 25px;
+        margin: 15rem auto 11.5rem;
+
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 1.8rem;
+        line-height: 175%;
+        text-align: justify;
+        letter-spacing: -0.04em;
+
+        color: #333333;
+
+        & p {
+            margin-bottom: 2.1rem;
+        }
+
+        & strong {
+            font-weight: 700;
+        }
+
+        & h1,
+        & h2,
+        & .h2 {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 3.5rem;
+            line-height: 4.6rem;
+            letter-spacing: -0.04em;
+            color: $text;
+            margin-bottom: 6.5rem;
+            margin-top: 10rem;
+
+            @media screen and (max-width: 500px) {
+                font-size: 2.8rem;
+                line-height: 4rem;
+            }
+        }
+
+        & li {
+            margin-bottom: 2rem;
+            padding-left: 0.5rem;
+        }
+
+        & a {
+            transition: all 300ms ease-out;
+            color: $accent;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        @media screen and (max-width: 1200px) {
+            font-size: 1.9rem;
+            margin: 17rem auto 5rem;
+
+            & h2,
+            & .h2 {
+                margin-bottom: 5.5rem;
+                margin-top: 8rem;
+                font-size: 3rem;
+                line-height: 4rem;
+            }
+        }
+
+        @media screen and (max-width: 550px) {
+            margin: 15rem auto 5rem;
+
+            & h2,
+            & .h2 {
+                font-size: 2.5rem;
+                line-height: 3.5rem;
+                margin-bottom: 5rem;
+                margin-top: 6rem;
+                text-align: center;
+            }
+        }
+    }
+    table {
+        border-collapse: collapse;
+        th {
+            color: white;
+            background-color: #444;
+        }
+        th,
+        td {
+            padding: 1rem 2rem;
+            border: 1px solid #aaa;
+        }
+        @media screen and (max-width: 750px) {
+            width: 750px;
+        }
+    }
+    .overflow-inner {
+        @media screen and (max-width: 750px) {
+            overflow-x: auto;
+        }
+    }
+}
+
+.page-id-3 {
+    background-color: #fff;
+}

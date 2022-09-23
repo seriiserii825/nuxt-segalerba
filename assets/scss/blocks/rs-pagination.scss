@@ -1,0 +1,40 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 6rem auto 0;
+  max-width: 900px;
+  li {
+	@media screen and (max-width: 768px) {
+	  margin-bottom: 4rem;
+	}
+	&:first-of-type {
+	  margin-right: 0.4rem;
+	}
+  }
+  .page-item {
+	margin-right: 0.4rem;
+	&.active {
+	  a {
+		color: white;
+		background-color: $accent;
+	  }
+	}
+  }
+  a {
+	padding: 0.8rem 1.4rem;
+	font-size: 2rem;
+	color: $accent;
+	border: 1px solid $accent;
+	transition: all .4s;
+	&:hover {
+	  color: white;
+	  background-color: $accent;
+	}
+	&.disabled {
+	  cursor: not-allowed !important;
+	  opacity: 0.6 !important;
+	}
+  }
+}

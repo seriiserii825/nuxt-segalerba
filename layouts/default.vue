@@ -1,24 +1,22 @@
 <template>
   <div class="wrapper">
-    <MainHeader />
+    <MainHeader :option="option" />
     <nuxt />
   </div>
 </template>
 <script>
 import MainHeader from "~/components/navigation/MainHeader.vue";
 export default {
-  data() {
-    return {
-      option: {},
-    };
-  },
   components: {
     MainHeader,
   },
-  mounted() {
-    this.option = this.$store.getters.getOption;
-    console.log(this.option, "this.option");
-    console.log(this.$store.getters.getSome, "this.$store.getters.getSome");
+  computed: {
+    option() {
+      return this.$store.state.option;
+    },
   },
+  created(){
+    this.$store.dispatch('fetchOption');
+  }
 };
 </script>

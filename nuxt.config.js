@@ -15,6 +15,9 @@ export default {
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
+  env: {
+    siteUrl: process.env.SITE_URL,
+  },
   alias: {
     "@root": resolve(__dirname, "./"),
   },

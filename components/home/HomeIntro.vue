@@ -208,5 +208,14 @@
 </template>
 <script>
 export default {
+  props: {
+    home_intro: {
+      type: Object,
+      required: true,
+    },
+  },
+  created() {
+    console.log(this.home_intro);
+  },
 };
 </script>

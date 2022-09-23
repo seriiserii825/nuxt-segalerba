@@ -1,5 +1,5 @@
 export const state = () => ({
-  home: {},
+  home: null,
 });
 
 export const mutations = {
@@ -10,7 +10,25 @@ export const mutations = {
 
 export const actions = {
   async fetchHome({ commit }) {
-    const { data } = await this.$axios.get("/home?populate=%2A");
+    const qs = require("qs");
+    const query = qs.stringify(
+      {
+        populate: {
+          home_intro: {
+            fields: ["title", "subtitle"],
+            populate: {
+              image: {
+                fields: ["url"],
+              }
+            },
+          },
+        },
+      },
+      {
+        encodeValuesOnly: true, // prettify URL
+      }
+    );
+    const { data } = await this.$axios.get("/home?"+query);
     commit("getHome", data);
   },
 };

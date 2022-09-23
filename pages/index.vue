@@ -13,17 +13,20 @@ export default {
   name: "IndexPage",
   layout: "default",
   async asyncData({ store }) {
-    const home = await store.state.home.home;
-    console.log(home, "home");
+    let home = null;
+
+    if (!store.state.home.home) {
+      await store.dispatch("home/fetchHome");
+      home = store.state.home.home;
+    }
+    home = store.state.home.home;
+
     return {
       home: home,
     };
   },
   components: {
     HomeIntro,
-  },
-  created() {
-    this.$store.dispatch("home/fetchHome");
   },
 };
 </script>

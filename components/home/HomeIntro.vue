@@ -1,15 +1,9 @@
 <template>
   <div class="home-intro fade-in">
-    <picture>
-      <source
-        srcset="
-          https://immobiliaresegalerba.it/wp-content/uploads/2021/06/home-intro.jpg
-        "
-        media="(min-width: 768px)"
-      />
+    <picture v-if="home_intro.image">
       <img
         class="home-intro__img"
-        src="https://immobiliaresegalerba.it/wp-content/uploads/2021/06/home-intro-mobile.jpg"
+        :src="`${site_url}${home_intro.image}`"
         alt=""
       />
     </picture>
@@ -198,9 +192,11 @@
         </div>
       </div>
       <div class="home-intro__content">
-        <h1 class="home-intro__title"><span>Immobiliare Segalerba </span></h1>
+        <h1 class="home-intro__title">
+          <span v-if="home_intro.title">{{ home_intro.title }}</span>
+        </h1>
         <h2 class="home-intro__subtitle">
-          <span>Raggiungi i tuoi obiettivi in modo rapido e sicuro </span>
+          <span v-if="home_intro.subtitle">{{ home_intro.subtitle }}</span>
         </h2>
       </div>
     </div>
@@ -214,8 +210,10 @@ export default {
       required: true,
     },
   },
-  created() {
-    console.log(this.home_intro);
+  data() {
+    return {
+      site_url: process.env.siteUrl,
+    };
   },
 };
 </script>

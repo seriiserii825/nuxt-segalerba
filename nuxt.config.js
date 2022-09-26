@@ -15,6 +15,10 @@ export default {
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
+  router: {
+    linkActiveClass: "active",
+    linkExactActiveClass: "exact-active",
+  },
   env: {
     siteUrl: process.env.SITE_URL,
   },

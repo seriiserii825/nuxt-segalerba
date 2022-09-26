@@ -19,8 +19,11 @@ export const actions = {
             populate: {
               image: {
                 fields: ["url"],
-              }
+              },
             },
+          },
+          features: {
+            populate: "*",
           },
         },
       },
@@ -28,7 +31,7 @@ export const actions = {
         encodeValuesOnly: true, // prettify URL
       }
     );
-    const { data } = await this.$axios.get("/home?"+query);
+    const { data } = await this.$axios.get("/home?" + query);
     commit("getHome", data);
   },
 };

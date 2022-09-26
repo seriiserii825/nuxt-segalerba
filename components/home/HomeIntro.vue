@@ -3,7 +3,7 @@
     <picture v-if="home_intro.image">
       <img
         class="home-intro__img"
-        :src="`${site_url}${home_intro.image}`"
+        :src="`${site_url}${home_intro.image.data.attributes.url}`"
         alt=""
       />
     </picture>

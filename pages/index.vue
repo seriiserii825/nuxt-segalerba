@@ -1,14 +1,15 @@
 <template>
-  <div>
-    <HomeIntro
-      v-if="home && home.data"
-      :home_intro="home.data.attributes.home_intro"
-    />
+  <div v-if="home && home.data">
+    <HomeIntro :home_intro="home.data.attributes.home_intro" />
+    <div class="container">
+      <Features :features="home.data.attributes.features" />
+    </div>
   </div>
 </template>
 
 <script>
 import HomeIntro from "@/components/home/HomeIntro.vue";
+import Features from "@/components/home/Features.vue";
 export default {
   name: "IndexPage",
   layout: "default",
@@ -27,6 +28,7 @@ export default {
   },
   components: {
     HomeIntro,
+    Features,
   },
 };
 </script>

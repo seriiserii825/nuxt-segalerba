@@ -3,7 +3,8 @@
     <HomeIntro :home_intro="home.data.attributes.home_intro"/>
     <div class="container">
       <Features :features="home.data.attributes.features"/>
-      <Banner :banner="home.data.attributes.banner" />
+      <Banner :banner="home.data.attributes.banner"/>
+      <About :about="home.data.attributes.about" />
     </div>
   </div>
 </template>
@@ -12,6 +13,7 @@
 import HomeIntro from "@/components/home/HomeIntro.vue";
 import Features from "@/components/home/Features.vue";
 import Banner from "../components/home/Banner";
+import About from "../components/home/About";
 
 export default {
   name: "IndexPage",
@@ -30,6 +32,7 @@ export default {
     };
   },
   components: {
+    About,
     Banner,
     HomeIntro,
     Features,

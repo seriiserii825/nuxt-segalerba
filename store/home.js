@@ -32,6 +32,14 @@ export const actions = {
                                 fields: ["url"],
                             }
                         }
+                    },
+                    about: {
+                        fields: ["title", "text", "button_text", "button_url"],
+                        populate: {
+                            image: {
+                                fields: ["url"],
+                            }
+                        }
                     }
                 },
             },

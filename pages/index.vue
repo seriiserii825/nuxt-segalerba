@@ -1,12 +1,15 @@
 <template>
   <div v-if="home && home.data">
-    <HomeIntro :home_intro="home.data.attributes.home_intro"/>
+    <HomeIntro :home_intro="home.data.attributes.home_intro" />
     <div class="container">
-      <Features :features="home.data.attributes.features"/>
-      <Banner :banner="home.data.attributes.banner"/>
-      <About :about="home.data.attributes.about"/>
-      <Certificates :certificates="home.data.attributes.certificates"/>
-      <Blog :latest_posts="home.data.attributes.latest_posts"/>
+      <Features :features="home.data.attributes.features" />
+      <Banner :banner="home.data.attributes.banner" />
+      <About :about="home.data.attributes.about" />
+      <Certificates :certificates="home.data.attributes.certificates" />
+      <Blog
+        :items="latest_posts_items"
+        :latest_posts="home.data.attributes.latest_posts"
+      />
     </div>
   </div>
 </template>
@@ -22,7 +25,7 @@ import Blog from "../components/home/Blog";
 export default {
   name: "IndexPage",
   layout: "default",
-  async asyncData({store}) {
+  async asyncData({ store }) {
     let home = null;
 
     if (!store.state.home.home) {
@@ -31,8 +34,17 @@ export default {
     }
     home = store.state.home.home;
 
+    let latest_posts_ids =
+      home.data.attributes.latest_posts.posts_ids.split(",");
+    latest_posts_ids = latest_posts_ids.map(item => Number(item));
+
+    await store.dispatch("blog/fetchLastPosts", latest_posts_ids);
+
+    const latest_posts_items = store.state.blog.last_posts;
+
     return {
       home: home,
+      latest_posts_items: latest_posts_items.data,
     };
   },
   components: {
@@ -41,7 +53,7 @@ export default {
     Banner,
     HomeIntro,
     Features,
-    Blog
+    Blog,
   },
 };
 </script>

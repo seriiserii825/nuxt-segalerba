@@ -20,7 +20,7 @@ export default {
     linkExactActiveClass: "exact-active",
   },
   env: {
-    siteUrl: process.env.SITE_URL,
+    siteUrl: process.env.SITE_URL
   },
   alias: {
     "@root": resolve(__dirname, "./"),

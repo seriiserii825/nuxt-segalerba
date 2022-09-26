@@ -10,7 +10,6 @@ export const mutations = {
 
 export const actions = {
   async fetchLastPosts({ commit }, payload) {
-    console.log(payload, "payload");
     const qs = require("qs");
     const query = qs.stringify(
       {

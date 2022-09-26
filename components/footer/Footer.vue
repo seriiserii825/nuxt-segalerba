@@ -6,7 +6,7 @@
         <Contacts v-if="Object.keys(option).length > 0" :option="option"/>
       </div>
     </div>
-    <div id="map-wrap" style="height: 100vh">
+    <div id="map-wrap" style="height: 58rem">
       <client-only>
         <l-map :zoom=17 :center="[44.414274, 8.92939]">
           <l-tile-layer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"></l-tile-layer>
@@ -18,23 +18,17 @@
       <div class="container">
         <div class="main-footer__down-wrap">
           <div class="copyright">
-            Copyright 2021 IMMOBILIARE SEGALERBA SNC DI FABRIZIO SEGALERBA E C.
+            <span v-if="option.full_company_name">Copyright 2022 {{ option.full_company_name }}</span>
             <br/>
-            Partita Iva : 01433580998. Tutti i diritti riservati.
-            <a target="_blank" href="/privacy-policy/"
-            >Privacy and Cookie policy.</a
-            >
+            Partita Iva : <span v-if="option.vat">{{ option.vat }}</span>. Tutti i diritti riservati.
+            <nuxt-link target="_blank" to="/privacy-policy">Privacy and Cookie policy.</nuxt-link>
           </div>
           <div class="partner">
-            <div class="partner__text">
-              Immobiliare Segalerba<br/>
-              ha scelto
-            </div>
-            <a target="_blank" href="https://www.altuofianco.it/">
-              <img
-                  src="https://immobiliaresegalerba.it/wp-content/uploads/2021/06/altuofianco.svg"
-                  alt=""
-              />
+            <div class="partner__text" v-if="option.partner_text" v-html="option.partner_text"></div>
+            <a
+                v-if="option.partner_image"
+                target="_blank" :href="option.partner__url">
+              <img :src="`${site_url}${option.partner_image.data.attributes.url}`" alt=""/>
             </a>
           </div>
         </div>
@@ -53,6 +47,11 @@ export default {
       default: () => {
         return {};
       },
+    }
+  },
+  data() {
+    return {
+      site_url: process.env.siteUrl,
     }
   },
   components: {Contacts, Form},

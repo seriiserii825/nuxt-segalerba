@@ -1,8 +1,9 @@
 <template>
   <div v-if="home && home.data">
-    <HomeIntro :home_intro="home.data.attributes.home_intro" />
+    <HomeIntro :home_intro="home.data.attributes.home_intro"/>
     <div class="container">
-      <Features :features="home.data.attributes.features" />
+      <Features :features="home.data.attributes.features"/>
+      <Banner :banner="home.data.attributes.banner" />
     </div>
   </div>
 </template>
@@ -10,10 +11,12 @@
 <script>
 import HomeIntro from "@/components/home/HomeIntro.vue";
 import Features from "@/components/home/Features.vue";
+import Banner from "../components/home/Banner";
+
 export default {
   name: "IndexPage",
   layout: "default",
-  async asyncData({ store }) {
+  async asyncData({store}) {
     let home = null;
 
     if (!store.state.home.home) {
@@ -27,6 +30,7 @@ export default {
     };
   },
   components: {
+    Banner,
     HomeIntro,
     Features,
   },

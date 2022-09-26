@@ -1,8 +1,8 @@
 <template>
   <div class="wrapper">
-    <MainHeader :option="option"/>
+    <MainHeader v-if="option" :option="option"/>
     <nuxt/>
-    <Footer/>
+    <Footer v-if="option" :option="option"/>
   </div>
 </template>
 <script>

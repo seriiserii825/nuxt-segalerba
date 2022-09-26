@@ -4,7 +4,8 @@
     <div class="container">
       <Features :features="home.data.attributes.features"/>
       <Banner :banner="home.data.attributes.banner"/>
-      <About :about="home.data.attributes.about" />
+      <About :about="home.data.attributes.about"/>
+      <Certificates :certificates="home.data.attributes.certificates"/>
     </div>
   </div>
 </template>
@@ -14,6 +15,7 @@ import HomeIntro from "@/components/home/HomeIntro.vue";
 import Features from "@/components/home/Features.vue";
 import Banner from "../components/home/Banner";
 import About from "../components/home/About";
+import Certificates from "../components/home/Certificates";
 
 export default {
   name: "IndexPage",
@@ -32,6 +34,7 @@ export default {
     };
   },
   components: {
+    Certificates,
     About,
     Banner,
     HomeIntro,

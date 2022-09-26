@@ -40,6 +40,13 @@ export const actions = {
                                 fields: ["url"],
                             }
                         }
+                    },
+                    certificates: {
+                        populate: {
+                            image: {
+                                fields: ["url"],
+                            }
+                        },
                     }
                 },
             },
@@ -52,8 +59,8 @@ export const actions = {
     },
 };
 
-export const getters = {
-    home(state) {
-        return state.home;
-    },
-};
+// export const getters = {
+//     home(state) {
+//         return state.home;
+//     },
+// };

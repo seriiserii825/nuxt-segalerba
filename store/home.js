@@ -47,6 +47,9 @@ export const actions = {
                                 fields: ["url"],
                             }
                         },
+                    },
+                    latest_posts: {
+                        fields: ["title", "button_text", "posts_ids"],
                     }
                 },
             },

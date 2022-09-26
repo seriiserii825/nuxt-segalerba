@@ -6,6 +6,7 @@
       <Banner :banner="home.data.attributes.banner"/>
       <About :about="home.data.attributes.about"/>
       <Certificates :certificates="home.data.attributes.certificates"/>
+      <Blog :latest_posts="home.data.attributes.latest_posts"/>
     </div>
   </div>
 </template>
@@ -16,6 +17,7 @@ import Features from "@/components/home/Features.vue";
 import Banner from "../components/home/Banner";
 import About from "../components/home/About";
 import Certificates from "../components/home/Certificates";
+import Blog from "../components/home/Blog";
 
 export default {
   name: "IndexPage",
@@ -39,6 +41,7 @@ export default {
     Banner,
     HomeIntro,
     Features,
+    Blog
   },
 };
 </script>

@@ -1,13 +1,17 @@
 <template>
   <div class="wrapper">
-    <MainHeader :option="option" />
-    <nuxt />
+    <MainHeader :option="option"/>
+    <nuxt/>
+    <Footer/>
   </div>
 </template>
 <script>
 import MainHeader from "~/components/navigation/MainHeader.vue";
+import Footer from "../components/footer/Footer";
+
 export default {
   components: {
+    Footer,
     MainHeader,
   },
   computed: {
@@ -15,7 +19,7 @@ export default {
       return this.$store.state.option;
     },
   },
-  created(){
+  created() {
     this.$store.dispatch('fetchOption');
   }
 };

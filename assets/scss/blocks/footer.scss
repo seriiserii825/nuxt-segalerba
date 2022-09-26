@@ -2,7 +2,6 @@
   @media screen and (max-width: 992px) {
     padding-top: 4rem;
   }
-
   @media screen and (max-width: 550px) {
     padding-top: 3rem;
   }
@@ -23,7 +22,6 @@
     @include eina;
     font-size: 2.8rem;
   }
-
   .form-footer {
     @media screen and (max-width: 576px) {
       display: flex;
@@ -171,6 +169,10 @@
       background-color: transparent;
       border: none;
       border-bottom: 1px solid rgba(black, 0.3);
+      &.error {
+        color: red;
+        border: 1px solid red !important;
+      }
       &:focus {
         outline: none;
         border-bottom: 1px dashed rgba(black, 0.3);
@@ -210,6 +212,11 @@
     &:hover {
       background-color: darken($accent, 20%);
     }
+  }
+  p.error {
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    color: red;
   }
   &-footer {
     margin-top: 15.3rem;
@@ -413,7 +420,6 @@
     @media screen and (max-width: 1200px) {
       width: auto;
     }
-
     @media screen and (max-width: 550px) {
       padding: 5.7rem 0 0rem 0;
     }

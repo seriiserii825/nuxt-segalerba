@@ -13,8 +13,8 @@
   </div>
 </template>
 <script>
-import PageIntro from "../components/global/PageIntro";
-import PostItem from "../components/posts/PostItem";
+import PageIntro from "../../components/global/PageIntro";
+import PostItem from "../../components/posts/PostItem";
 
 export default {
   name: "Blog",

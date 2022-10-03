@@ -1,14 +1,14 @@
 <template>
   <div v-if="home && home.data">
-    <HomeIntro :home_intro="home.data.attributes.home_intro" />
+    <HomeIntro :home_intro="home.data.attributes.home_intro"/>
     <div class="container">
-      <Features :features="home.data.attributes.features" />
-      <Banner :banner="home.data.attributes.banner" />
-      <About :about="home.data.attributes.about" />
-      <Certificates :certificates="home.data.attributes.certificates" />
+      <Features :features="home.data.attributes.features"/>
+      <Banner :banner="home.data.attributes.banner"/>
+      <About :about="home.data.attributes.about"/>
+      <Certificates :certificates="home.data.attributes.certificates"/>
       <Blog
-        :items="latest_posts_items"
-        :latest_posts="home.data.attributes.latest_posts"
+          :items="latest_posts_items"
+          :latest_posts="home.data.attributes.latest_posts"
       />
     </div>
   </div>
@@ -25,7 +25,7 @@ import Blog from "../components/home/Blog";
 export default {
   name: "IndexPage",
   layout: "default",
-  async asyncData({ store }) {
+  async asyncData({store}) {
     let home = null;
 
     if (!store.state.home.home) {
@@ -35,12 +35,12 @@ export default {
     home = store.state.home.home;
 
     let latest_posts_ids =
-      home.data.attributes.latest_posts.posts_ids.split(",");
+        home.data.attributes.latest_posts.posts_ids.split(",");
     latest_posts_ids = latest_posts_ids.map(item => Number(item));
 
-    await store.dispatch("blog/fetchLastPosts", latest_posts_ids);
+    await store.dispatch("last_posts/fetchLastPosts", latest_posts_ids);
 
-    const latest_posts_items = store.state.blog.last_posts;
+    const latest_posts_items = store.state.last_posts.last_posts;
 
     return {
       home: home,

@@ -1,0 +1,8 @@
+.page-chi-siamo {
+  .page-intro {
+    height: 77.7rem;
+    @media screen and (max-width: 576px) {
+      height: 30rem;
+    }
+  }
+}

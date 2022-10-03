@@ -1,8 +1,49 @@
 <template>
-  <h3>Chi siamo</h3>
+  <div class="page-chi-siamo">
+    <PageIntro v-if="chi_siamo.page_intro" :page_intro="chi_siamo.page_intro"/>
+    <div class="container">
+      <div class="site-bg site-bg--padding">
+        <div class="content" v-if="chi_siamo.content" v-html="chi_siamo.content"></div>
+        <section class="team">
+          <h2 class="team-main__title" v-if="chi_siamo.title_1">{{ chi_siamo.title_1 }}</h2>
+          <div class="team__wrap team__wrap--double" v-if="chi_siamo.team_1">
+            <TeamItem v-for="team in chi_siamo.team_1" :key="team.id" :team="team"/>
+          </div>
+        </section>
+        <section class="team-triple team " v-if="chi_siamo.team_2">
+          <h2 class="team-main__title" v-if="chi_siamo.title_2">{{ chi_siamo.title_2 }}</h2>
+          <div class="team__wrap team__wrap--double">
+            <TeamItem v-for="team in chi_siamo.team_2" :key="team.id" :team="team"/>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
 </template>
 <script>
-export default {
+import PageIntro from "../components/global/PageIntro";
+import TeamItem from "../components/team/TeamItem";
 
+export default {
+  components: {TeamItem, PageIntro},
+  layout: 'default',
+  async asyncData({store}) {
+    let chi_siamo = null;
+
+    if (!store.state.chi_siamo.chi_siamo) {
+      await store.dispatch("chi_siamo/fetchChiSiamo");
+      chi_siamo = store.state.chi_siamo.chi_siamo;
+    }
+    chi_siamo = store.state.chi_siamo.chi_siamo.data.attributes;
+
+    return {
+      chi_siamo: chi_siamo,
+    };
+  },
+  data() {
+    return {
+      site_url: process.env.siteUrl,
+    }
+  },
 }
 </script>

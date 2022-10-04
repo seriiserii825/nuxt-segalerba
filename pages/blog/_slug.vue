@@ -58,7 +58,7 @@
             <li><span>TAGS:</span></li>
             <li v-for="tag in post.post_tags.data" :key="tag.id">
               <nuxt-link
-                :to="`/blog/tag/${tag.attributes.slug}`"
+                :to="`/tag/${tag.attributes.slug}`"
                 :title="tag.attributes.title"
                 class="mercato-immobiliare"
               >

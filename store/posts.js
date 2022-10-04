@@ -1,6 +1,7 @@
 export const state = () => ({
   posts: [],
   post: {},
+  posts_by_tag: [],
 });
 
 export const mutations = {
@@ -9,6 +10,9 @@ export const mutations = {
   },
   getPost(state, payload) {
     state.post = payload;
+  },
+  getPostsByTag(state, payload) {
+    state.posts_by_tag = payload;
   },
 };
 
@@ -32,6 +36,31 @@ export const actions = {
     );
     const { data } = await this.$axios.get("/posts?" + query);
     commit("getLastPosts", data);
+  },
+  async fetchPostsByTag({ commit }, payload) {
+    const qs = require("qs");
+    const query = qs.stringify(
+      {
+        filters: {
+          post_tags: {
+            slug: payload.slug,
+          },
+        },
+        populate: {
+          post_tags: {
+            fields: ["title", "slug"],
+          },
+          image: {
+            fields: ["url"],
+          },
+        },
+      },
+      {
+        encodeValuesOnly: true, // prettify URL
+      }
+    );
+    const { data } = await this.$axios.get("/posts?" + query);
+    commit("getPostsByTag", data);
   },
   async fetchPost({ commit }, payload) {
     const qs = require("qs");

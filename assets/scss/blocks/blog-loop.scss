@@ -57,6 +57,11 @@
   }
   &__category {
     color: $accent;
+    a {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
   &__title {
     margin-bottom: 4rem;

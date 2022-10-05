@@ -51,6 +51,9 @@ export const actions = {
           latest_posts: {
             fields: ["title", "button_text", "posts_ids"],
           },
+          seo: {
+            populate: "*",
+          },
         },
       },
       {

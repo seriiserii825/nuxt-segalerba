@@ -27,6 +27,38 @@ import TeamItem from "../components/team/TeamItem";
 export default {
   components: {TeamItem, PageIntro},
   layout: 'default',
+  head() {
+    return {
+      title: this.chi_siamo.seo.title,
+      meta: [
+        {
+          hid: "keywords",
+          name: "keywords",
+          content: "immobili",
+        },
+        {
+          hid: "description",
+          name: "description",
+          content: this.chi_siamo.seo.text,
+        },
+        {
+          hid: "og:title",
+          name: "og:title",
+          content: this.chi_siamo.seo.title,
+        },
+        {
+          hid: "og:image",
+          property: "og:image",
+          content: `${process.env.siteUrl}${this.chi_siamo.seo.image.data.attributes.url}`,
+        },
+        {
+          hid: "og:description",
+          property: "og:description",
+          content: this.chi_siamo.seo.text,
+        },
+      ],
+    };
+  },
   async asyncData({store}) {
     let chi_siamo = null;
 

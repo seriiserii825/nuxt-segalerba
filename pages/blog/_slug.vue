@@ -89,6 +89,38 @@
 <script>
 export default {
   name: "Blog",
+  head() {
+    return {
+      title: this.post.seo.title,
+      meta: [
+        {
+          hid: "keywords",
+          name: "keywords",
+          content: "immobili",
+        },
+        {
+          hid: "description",
+          name: "description",
+          content: this.post.seo.text,
+        },
+        {
+          hid: "og:title",
+          name: "og:title",
+          content: this.post.seo.title,
+        },
+        {
+          hid: "og:image",
+          property: "og:image",
+          content: `${process.env.siteUrl}${this.post.image.data.attributes.url}`,
+        },
+        {
+          hid: "og:description",
+          property: "og:description",
+          content: this.post.seo.text,
+        },
+      ],
+    };
+  },
   async asyncData({ store, params }) {
     let blog = null;
 

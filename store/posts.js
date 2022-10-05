@@ -81,6 +81,9 @@ export const actions = {
           image: {
             fields: ["url"],
           },
+          seo: {
+            populate: "*",
+          },
         },
       },
       {

@@ -1,6 +1,7 @@
 <template>
   <div v-if="home">
     <HomeIntro :home_intro="home.home_intro" />
+    <FilterComponent />
     <div class="container">
       <Features :features="home.features" />
       <Banner :banner="home.banner" />
@@ -18,6 +19,7 @@ import Banner from "../components/home/Banner";
 import About from "../components/home/About";
 import Certificates from "../components/home/Certificates";
 import Blog from "../components/home/Blog";
+import FilterComponent from "../components/filter/FilterComponent.vue";
 
 export default {
   name: "IndexPage",
@@ -83,6 +85,7 @@ export default {
     HomeIntro,
     Features,
     Blog,
+    FilterComponent,
   },
 };
 </script>

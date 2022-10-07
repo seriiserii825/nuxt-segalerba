@@ -19,10 +19,22 @@ export default {
   data() {
     return {
       loading: false,
+      site_url: process.env.siteUrl,
+      provincia_immobile: null,
     };
   },
   components: {
     Preloader,
+  },
+  async created() {
+    await this.$store.dispatch("filters/fetchProvinciaImmobile");
+    this.provincia_immobile = this.$store.state.filters.provincia_immobile;
+
+    await this.$store.dispatch("filters/fetchLocalitaImmobile");
+    this.provincia_immobile = this.$store.state.filters.localita_immobile;
+
+    await this.$store.dispatch("filters/fetchZonaImmobile");
+    this.provincia_immobile = this.$store.state.filters.zona_immobile;
   },
 };
 </script>

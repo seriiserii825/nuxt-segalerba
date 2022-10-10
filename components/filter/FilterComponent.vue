@@ -106,9 +106,10 @@ export default {
       } else {
         this.provincia_immobile.forEach((item) => {
           if (item.title === this.province) {
+            console.log(item.title, "item.title");
+            console.log(this.province, "this.province");
             this.localita_immobile = item.children;
-          } else {
-            this.localita_immobile = [this.all_localita_immobile[0]];
+            console.log(this.localita_immobile, "this.localita_immobile");
           }
         });
       }
@@ -119,7 +120,7 @@ export default {
       } else {
         this.localita_immobile.forEach((item) => {
           if (item.title === this.localita) {
-            this.zona_immobile = item.zona;
+            this.zona_immobile = item.zona.length > 0 ? item.zona : [this.all_zona_immobile[0]];
           } else {
             this.zona_immobile = [this.all_zona_immobile[0]];
           }

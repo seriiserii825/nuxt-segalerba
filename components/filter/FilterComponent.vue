@@ -22,7 +22,10 @@
                 svg=""
               ></select-component>
             </div>
-            <div class="filter__item">
+            <div
+              class="filter__item"
+              v-if="localita_immobile && localita_immobile.length > 0"
+            >
               <select-component
                 tab-index="1"
                 :options="localita_immobile"
@@ -35,7 +38,10 @@
                 svg=""
               ></select-component>
             </div>
-            <div class="filter__item">
+            <div
+              class="filter__item"
+              v-if="zona_immobile && zona_immobile.length > 0"
+            >
               <select-component
                 tab-index="1"
                 :options="zona_immobile"
@@ -65,10 +71,10 @@ export default {
       loading: false,
       site_url: process.env.siteUrl,
       provincia_immobile: null,
-      default_provincia_immobile: null,
       localita_immobile: null,
-      default_localita_immobile: null,
+      all_localita_immobile: null,
       zona_immobile: null,
+      all_zona_immobile: null,
       province: "Tutte",
       localita: "Tutte",
       zona: "Tutte",
@@ -80,24 +86,68 @@ export default {
   },
   methods: {
     setProvince(value) {
+      this.localita = this.all_localita_immobile[0].title;
       this.province = value.label;
+      console.log(this.localita, "this.localita");
+      console.log(this.province, "this.province");
+      this.setLocalitaOptionsByProvince();
     },
     setLocalita(value) {
+      this.zona = this.all_zona_immobile[0].title;
       this.localita = value.label;
+      this.setZonaOptionsByLocalita();
     },
     setZona(value) {
       this.zona = value.label;
     },
+    setLocalitaOptionsByProvince() {
+      if (this.province === this.provincia_immobile[0].title) {
+        this.localita_immobile = this.all_localita_immobile;
+      } else {
+        this.provincia_immobile.forEach((item) => {
+          if (item.title === this.province) {
+            this.localita_immobile = item.children;
+          } else {
+            this.localita_immobile = [this.all_localita_immobile[0]];
+          }
+        });
+      }
+    },
+    setZonaOptionsByLocalita() {
+      if (this.localita === this.all_localita_immobile[0].title) {
+        this.zona_immobile = this.all_zona_immobile;
+      } else {
+        this.localita_immobile.forEach((item) => {
+          if (item.title === this.localita) {
+            this.zona_immobile = item.zona;
+          } else {
+            this.zona_immobile = [this.all_zona_immobile[0]];
+          }
+        });
+      }
+    },
     async setProvinceOptions() {
       await this.$store.dispatch("filters/fetchProvinciaImmobile");
+
       let provincia_immobile = this.$store.state.filters.provincia_immobile;
       provincia_immobile = provincia_immobile.data.map((item) => {
+        let children = [];
+        if (item.attributes.localita_immobiles.data.length) {
+          item.attributes.localita_immobiles.data.forEach((item) => {
+            this.localita_immobile.forEach((localita) => {
+              if (localita.id === item.id) {
+                children.push(localita);
+              }
+            });
+          });
+        }
         return {
           id: item.id,
           title: item.attributes.title,
-          children: item.attributes.localita_immobiles.data,
+          children: children,
         };
       });
+
       this.provincia_immobile = [
         {
           id: "all",
@@ -111,9 +161,23 @@ export default {
       await this.$store.dispatch("filters/fetchLocalitaImmobile");
       this.localita_immobile = this.$store.state.filters.localita_immobile;
       this.localita_immobile = this.localita_immobile.data.map((item) => {
+        let children = [];
+        if (
+          item.attributes.zona_immobiles &&
+          item.attributes.zona_immobiles.data.length
+        ) {
+          item.attributes.zona_immobiles.data.forEach((item) => {
+            this.zona_immobile.forEach((zona) => {
+              if (zona.id === item.id) {
+                children.push(zona);
+              }
+            });
+          });
+        }
         return {
           id: item.id,
           title: item.attributes.title,
+          zona: children,
         };
       });
       this.localita_immobile = [
@@ -123,6 +187,7 @@ export default {
         },
         ...this.localita_immobile,
       ];
+      this.all_localita_immobile = this.localita_immobile;
     },
     async setZoneOptions() {
       await this.$store.dispatch("filters/fetchZonaImmobile");
@@ -140,12 +205,13 @@ export default {
         },
         ...this.zona_immobile,
       ];
+      this.all_zona_immobile = this.zona_immobile;
     },
   },
-  created() {
-    this.setProvinceOptions();
-    this.setLocalitaOptions();
-    this.setZoneOptions();
+  async created() {
+    await this.setZoneOptions();
+    await this.setLocalitaOptions();
+    await this.setProvinceOptions();
   },
 };
 </script>

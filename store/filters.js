@@ -4,6 +4,7 @@ export const state = () => ({
   zona_immobile: null,
   tipo_immobile: null,
   contrato_immobiles: null,
+  residenziale_immobiles: null,
 });
 
 export const mutations = {
@@ -21,6 +22,9 @@ export const mutations = {
   },
   getContratoImmobile(state, payload) {
     state.contrato_immobiles = payload;
+  },
+  getResidenzialeImmobile(state, payload) {
+    state.residenziale_immobiles = payload;
   },
 };
 
@@ -91,5 +95,18 @@ export const actions = {
     );
     const { data } = await this.$axios.get("/contrato-immobiles?" + query);
     commit("getContratoImmobile", data);
+  },
+  async fetchResidenzialeImmobile({ commit }) {
+    const qs = require("qs");
+    const query = qs.stringify(
+      {
+        fields: ["title"],
+      },
+      {
+        encodeValuesOnly: true, // prettify URL
+      }
+    );
+    const { data } = await this.$axios.get("/residenziale-immobiles?" + query);
+    commit("getResidenzialeImmobile", data);
   },
 };

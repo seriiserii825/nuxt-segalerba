@@ -2,7 +2,6 @@
   position: relative;
   background-color: white;
   outline: none !important;
-
   &__header {
     padding: 2rem 2.9rem;
   }
@@ -30,6 +29,7 @@
   }
   &__title {
     margin-bottom: 1.4rem;
+    letter-spacing: -0.06rem;
   }
   &__span {
     font-style: normal;
@@ -37,12 +37,10 @@
     font-size: 1.8rem;
     line-height: 2.1rem;
     color: #505050;
-
     @media screen and (max-width: 1312px) {
       font-size: 1.5rem;
       line-height: 1.8rem;
     }
-
     @media screen and (max-width: 1200px) {
       font-size: 1.8rem;
       line-height: 2.1rem;

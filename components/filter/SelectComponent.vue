@@ -38,7 +38,7 @@ export default {
     id: String,
     title: String,
     label: String,
-    value: String,
+    value: String | Number,
     svg: String,
     tabIndex: String,
     loopId: String,

@@ -90,7 +90,6 @@ export const actions = {
       }
     );
     const { data } = await this.$axios.get("/contrato-immobiles?" + query);
-    console.log(data, "data");
     commit("getContratoImmobile", data);
   },
 };

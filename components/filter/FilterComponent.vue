@@ -86,6 +86,17 @@
                 svg=""
               ></select-component>
             </div>
+            <div class="filter__item">
+              <input-component
+                tabindex="6"
+                type="text"
+                title="Riferimento"
+                @handle-func="setRif"
+                svg=""
+                placeholder="Tutti"
+              >
+              </input-component>
+            </div>
           </div>
         </div>
       </div>
@@ -96,6 +107,7 @@
 <script>
 import Preloader from "~/components/filter/Preloader";
 import SelectComponent from "~/components/filter/SelectComponent";
+import InputComponent from "~/components/filter/InputComponent";
 export default {
   name: "FilterComponent",
   data() {
@@ -114,18 +126,18 @@ export default {
       tipo: "Tutti",
       contrato_immobiles: null,
       contrato: "Tutti",
+      riferimento: "",
     };
   },
   components: {
     Preloader,
     SelectComponent,
+    InputComponent
   },
   methods: {
     setProvince(value) {
       this.localita = this.all_localita_immobile[0].title;
       this.province = value.label;
-      console.log(this.localita, "this.localita");
-      console.log(this.province, "this.province");
       this.setLocalitaOptionsByProvince();
     },
     setLocalita(value) {
@@ -141,6 +153,9 @@ export default {
     },
     setContrato(value) {
       this.contrato = value.label;
+    },
+    setRif(value) {
+      this.riferimento = value;
     },
     setLocalitaOptionsByProvince() {
       if (this.province === this.provincia_immobile[0].title) {

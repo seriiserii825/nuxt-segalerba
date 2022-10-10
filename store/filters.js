@@ -2,6 +2,7 @@ export const state = () => ({
   provincia_immobile: null,
   localita_immobile: null,
   zona_immobile: null,
+  tipo_immobile: null,
 });
 
 export const mutations = {
@@ -13,6 +14,9 @@ export const mutations = {
   },
   getZonaImmobile(state, payload) {
     state.zona_immobile = payload;
+  },
+  getTipoImmobile(state, payload) {
+    state.tipo_immobile = payload;
   },
 };
 
@@ -57,5 +61,18 @@ export const actions = {
     );
     const { data } = await this.$axios.get("/zona-immobiles?" + query);
     commit("getZonaImmobile", data);
+  },
+  async fetchTipoImmobile({ commit }) {
+    const qs = require("qs");
+    const query = qs.stringify(
+      {
+        fields: ["title"],
+      },
+      {
+        encodeValuesOnly: true, // prettify URL
+      }
+    );
+    const { data } = await this.$axios.get("/tipo-immobiles?" + query);
+    commit("getTipoImmobile", data);
   },
 };

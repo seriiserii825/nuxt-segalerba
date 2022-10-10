@@ -54,6 +54,22 @@
                 svg=""
               ></select-component>
             </div>
+            <div
+              class="filter__item"
+              v-if="tipo_immobile && tipo_immobile.length > 0"
+            >
+              <select-component
+                tab-index="1"
+                :options="tipo_immobile"
+                id="id"
+                title="Tipo di immobile"
+                label="title"
+                :value="tipo"
+                @handle-func="setTipo"
+                loop-id="id"
+                svg=""
+              ></select-component>
+            </div>
           </div>
         </div>
       </div>
@@ -78,6 +94,8 @@ export default {
       province: "Tutte",
       localita: "Tutte",
       zona: "Tutte",
+      tipo_immobile: null,
+      tipo: "Tutti",
     };
   },
   components: {
@@ -100,6 +118,9 @@ export default {
     setZona(value) {
       this.zona = value.label;
     },
+    setTipo(value) {
+      this.tipo = value.label;
+    },
     setLocalitaOptionsByProvince() {
       if (this.province === this.provincia_immobile[0].title) {
         this.localita_immobile = this.all_localita_immobile;
@@ -120,7 +141,8 @@ export default {
       } else {
         this.localita_immobile.forEach((item) => {
           if (item.title === this.localita) {
-            this.zona_immobile = item.zona.length > 0 ? item.zona : [this.all_zona_immobile[0]];
+            this.zona_immobile =
+              item.zona.length > 0 ? item.zona : [this.all_zona_immobile[0]];
           } else {
             this.zona_immobile = [this.all_zona_immobile[0]];
           }
@@ -208,11 +230,29 @@ export default {
       ];
       this.all_zona_immobile = this.zona_immobile;
     },
+    async setTipoImmobile() {
+      await this.$store.dispatch("filters/fetchTipoImmobile");
+      this.tipo_immobile = this.$store.state.filters.tipo_immobile;
+      this.tipo_immobile = this.tipo_immobile.data.map((item) => {
+        return {
+          id: item.id,
+          title: item.attributes.title,
+        };
+      });
+      this.tipo_immobile = [
+        {
+          id: "all",
+          title: "Tutti",
+        },
+        ...this.tipo_immobile,
+      ];
+    },
   },
   async created() {
     await this.setZoneOptions();
     await this.setLocalitaOptions();
     await this.setProvinceOptions();
+    await this.setTipoImmobile();
   },
 };
 </script>

@@ -70,6 +70,22 @@
                 svg=""
               ></select-component>
             </div>
+            <div
+              class="filter__item"
+              v-if="contrato_immobiles && contrato_immobiles.length > 0"
+            >
+              <select-component
+                tab-index="1"
+                :options="contrato_immobiles"
+                id="id"
+                title="Tipo contrato"
+                label="title"
+                :value="contrato"
+                @handle-func="setContrato"
+                loop-id="id"
+                svg=""
+              ></select-component>
+            </div>
           </div>
         </div>
       </div>
@@ -96,6 +112,8 @@ export default {
       zona: "Tutte",
       tipo_immobile: null,
       tipo: "Tutti",
+      contrato_immobiles: null,
+      contrato: "Tutti",
     };
   },
   components: {
@@ -120,6 +138,9 @@ export default {
     },
     setTipo(value) {
       this.tipo = value.label;
+    },
+    setContrato(value) {
+      this.contrato = value.label;
     },
     setLocalitaOptionsByProvince() {
       if (this.province === this.provincia_immobile[0].title) {
@@ -247,12 +268,30 @@ export default {
         ...this.tipo_immobile,
       ];
     },
+    async setContratoImmobile() {
+      await this.$store.dispatch("filters/fetchContratoImmobile");
+      this.contrato_immobiles = this.$store.state.filters.contrato_immobiles;
+      this.contrato_immobiles = this.contrato_immobiles.data.map((item) => {
+        return {
+          id: item.id,
+          title: item.attributes.title,
+        };
+      });
+      this.contrato_immobiles = [
+        {
+          id: "all",
+          title: "Tutti",
+        },
+        ...this.contrato_immobiles,
+      ];
+    },
   },
   async created() {
     await this.setZoneOptions();
     await this.setLocalitaOptions();
     await this.setProvinceOptions();
     await this.setTipoImmobile();
+    await this.setContratoImmobile();
   },
 };
 </script>

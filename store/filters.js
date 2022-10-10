@@ -3,6 +3,7 @@ export const state = () => ({
   localita_immobile: null,
   zona_immobile: null,
   tipo_immobile: null,
+  contrato_immobiles: null,
 });
 
 export const mutations = {
@@ -18,6 +19,9 @@ export const mutations = {
   getTipoImmobile(state, payload) {
     state.tipo_immobile = payload;
   },
+  getContratoImmobile(state, payload) {
+    state.contrato_immobiles = payload;
+  },
 };
 
 export const actions = {
@@ -26,7 +30,7 @@ export const actions = {
     const query = qs.stringify(
       {
         fields: ["title"],
-        populate: "*"
+        populate: "*",
       },
       {
         encodeValuesOnly: true, // prettify URL
@@ -40,7 +44,7 @@ export const actions = {
     const query = qs.stringify(
       {
         fields: ["title"],
-        populate: "*"
+        populate: "*",
       },
       {
         encodeValuesOnly: true, // prettify URL
@@ -74,5 +78,19 @@ export const actions = {
     );
     const { data } = await this.$axios.get("/tipo-immobiles?" + query);
     commit("getTipoImmobile", data);
+  },
+  async fetchContratoImmobile({ commit }) {
+    const qs = require("qs");
+    const query = qs.stringify(
+      {
+        fields: ["title"],
+      },
+      {
+        encodeValuesOnly: true, // prettify URL
+      }
+    );
+    const { data } = await this.$axios.get("/contrato-immobiles?" + query);
+    console.log(data, "data");
+    commit("getContratoImmobile", data);
   },
 };

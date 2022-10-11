@@ -1,7 +1,6 @@
 <template>
   <div class="filter-wrap">
     <div class="container">
-      <div class="preloader" :class="{ hide: !loading }"></div>
       <div class="filter__label">Trova il tuo immobile</div>
       <div class="filter home-intro__filter">
         <div class="filter-body">
@@ -192,13 +191,14 @@
         </div>
       </div>
     </div>
-    <div class="real-estates-container"></div>
+    <real-estates />
   </div>
 </template>
 <script>
 import Preloader from "~/components/filter/Preloader";
 import SelectComponent from "~/components/filter/SelectComponent";
 import InputComponent from "~/components/filter/InputComponent";
+import RealEstates from "~/components/filter/RealEstates";
 export default {
   name: "FilterComponent",
   data() {
@@ -234,6 +234,7 @@ export default {
     Preloader,
     SelectComponent,
     InputComponent,
+    RealEstates
   },
   methods: {
     setProvince(value) {
